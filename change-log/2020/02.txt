@@ -1,0 +1,5 @@
+==========
+2020-02-27
+==========
+
+**First 0.0.0-alpha version:** this project wants to simplify a lot the automation of starting new projects in several contexts. For the moment it just simplifies a very little the basic use of ``cookiecutter``.
