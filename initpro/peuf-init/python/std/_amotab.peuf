@@ -1,0 +1,30 @@
+project::
+    name = amotab
+    desc = amoform allows to work with Ascii Mathematical Objects Tables.
+           The aim of this tools is to write easily mathematical tables
+           (variations, signs and values) such as to use them in several
+           contexts.
+
+    _authors = Christophe, BAL , projetmbc@gmail.com
+
+    version = 0.0.0-alpha
+    python  = 3
+    url     = https://github.com/bc-math/amotab
+    license = GPL-3.0
+
+    _test_on = Mac OS 10.15.3
+
+    _keywords = developers ;
+                macos ; windows ;  linux ;
+                mathematics
+
+    _for_test = Hypothesis, http://hypothesis.works ;
+                misTool   , https://github.com/bc-python/mistool ;
+                orPyste   , https://github.com/bc-python/orpyste
+
+    _for_factory = misTool, https://github.com/bc-python/mistool ;
+                   orPyste, https://github.com/bc-python/orpyste
+
+// We use the magic word :launch: to separate the command used to launch
+// and the kind of files to find.
+    _launched_by_factory = python :launch: **build_*.py
