@@ -48,14 +48,6 @@ parser = argparse.ArgumentParser(
 
 
 parser.add_argument(
-    '-a', '--all',
-    action  = "store_true",
-    default = True,
-    help    = "ask to execute all the scripts founded. The default value "
-              "being True you can just skip the use of this option."
-)
-
-parser.add_argument(
     '-nos', '--noslow',
     action  = "store_true",
     default = False,
