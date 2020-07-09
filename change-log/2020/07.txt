@@ -1,5 +1,5 @@
 ==========
-2020-07-????
+2020-07-09
 ==========
 
 **New minor version version::``0.1.0-beta`` of ¨initpro:** the ``launch.py`` can be activated with CLI options and they work with path::``.bash`` and path::``.py`` files.
