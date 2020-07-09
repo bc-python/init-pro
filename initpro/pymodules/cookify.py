@@ -17,6 +17,8 @@ from .message import *
 # -- CONSTANTS -- #
 # --------------- #
 
+THIS_DIR = PPath(__file__).parent
+
 
 # ----------------- #
 # -- LOCAL TOOLS -- #
@@ -31,6 +33,7 @@ MAIN_STEPS = Step()
 
 def projects_to_do(
     cookiecutter_temp,
+    peuf_dir,
     all_peuf_choosen
 ):
     projects_to_do = []
@@ -92,8 +95,11 @@ def projects_to_do(
 
 # Does we have nothing ?
             newprojectpath = cookiecutter_temp \
-                           / onepeuf.parent.parent.name \
-                           / flatdict['project_name']
+                           / (
+                                (onepeuf.parent / onepeuf.stem)
+                                -
+                                peuf_dir
+                              )
 
             if newprojectpath.is_dir():
                 already_build.append(newprojectpath)
@@ -101,9 +107,10 @@ def projects_to_do(
 # We have something to do.
             else:
                 projects_to_do.append({
-                    'json': flatdict,
-                    'lang': onepeuf.parent.parent.name,
-                    'kind': onepeuf.parent.name
+                    'lang'   : onepeuf.parent.parent.name,
+                    'kind'   : onepeuf.parent.name,
+                    'json'   : flatdict,
+                    'relpath': onepeuf.parent - peuf_dir,
                 })
 
 # Some errors have been found.
@@ -125,6 +132,7 @@ def projects_to_do(
 
 def cookifyles(
     cookiecutter_temp,
+    peuf_dir,
     all_peuf_choosen
 ):
     title("LET'S WORK...")
@@ -132,6 +140,7 @@ def cookifyles(
 # Let's add the new json files.
     allprojects = projects_to_do(
         cookiecutter_temp,
+        peuf_dir,
         all_peuf_choosen
     )
 
@@ -141,7 +150,7 @@ def cookifyles(
             textit = lambda n, t: f"    {chr(96 + n)}/ {t}"
         )
 
-        projectreldir = f"{project['lang']}" \
+        projectreldir = f"{project['relpath']}" \
                       + f"/{project['json']['project_name']}"
 
         MAIN_STEPS(f"Building {projectreldir}")
@@ -150,8 +159,7 @@ def cookifyles(
         SUB_STEPS("Updating the json file.")
 
         jsonpath = cookiecutter_temp \
-                 / project['lang'] \
-                 / project['kind'] \
+                 / project['relpath'] \
                  / 'cookiecutter.json'
 
         with jsonpath.open(
@@ -163,7 +171,10 @@ def cookifyles(
 # Call of cookiecutter.
         SUB_STEPS("Trying to launch cookiecutter.")
 
-        with cd(cookiecutter_temp / project['lang']):
+        cmddir = cookiecutter_temp / project['relpath']
+        cmddir = cmddir.parent
+
+        with cd(cmddir):
             try:
                 runthis(
                     f"cookiecutter --no-input {project['kind']}",

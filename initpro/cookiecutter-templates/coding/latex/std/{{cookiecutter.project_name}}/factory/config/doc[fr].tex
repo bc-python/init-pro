@@ -1,0 +1,50 @@
+%\documentclass[12pt,a4paper]{scrartcl}
+\documentclass[12pt,a4paper]{article}
+
+\makeatletter % Technical doc - START
+
+%((header))%
+
+\makeatother % Technical doc - END
+
+
+\usepackage{lymath}
+
+
+\begin{document}
+
+\renewcommand\labelitemi{\raisebox{0.125em}{\tiny\textbullet}}
+\renewcommand{\labelitemii}{---}
+
+\title{   %
+	Le package \texttt{ {{cookiecutter.project_name | lower()}} }\\%
+	{\footnotesize Code source disponible sur \url{ {{cookiecutter.url}} }.}\\%
+{\footnotesize Version \texttt{ {{cookiecutter.version}} } développée et testée sur \macosxname{}.}%
+}
+\author{Christophe BAL}
+\date{YYYY-MM-DD}
+
+\maketitle
+
+
+\vspace{2em}
+
+\hrule
+
+\tableofcontents
+
+\vspace{1.5em}
+
+\hrule
+
+\newpage
+
+%((content))%
+
+
+\newpage
+\section{Toutes les fiches techniques} \label{techincal-ids}
+
+%((technical))%
+
+\end{document}

@@ -20,12 +20,20 @@ def chooseit(listofchoices):
 
     legalchoices = set('0')
 
-    print("    0) Ignore this step.")
+    print("    [0] Ignore this step.")
+    print()
+
+    listofchoices.sort()
 
     for nb, kind in enumerate(listofchoices, 1):
         print(f"    {nb}) {kind}")
 
         legalchoices.add(str(nb))
+
+    if 1 < len(listofchoices) < 99: # :-)
+        print()
+        print("    [99] Everything.")
+        legalchoices.add("99")
 
     print()
 
@@ -41,7 +49,11 @@ def chooseit(listofchoices):
 
     print()
 
-    choices = [int(c) - 1 for c in sorted(choices)]
+    if choices == set(["99"]):
+        choices = range(len(listofchoices))
+
+    else:
+        choices = [int(c) - 1 for c in sorted(choices)]
 
     return choices
 
@@ -59,8 +71,7 @@ def selections(peuf_dir, peuf_files):
             "Use spaces to separate your choices."
         )
 
-        if -1 not in choices:
-            choices = chooseit(sorted_keys)
+        choices = chooseit(sorted_keys)
 
 # Which project(s) ?
     peuf_choosen = []

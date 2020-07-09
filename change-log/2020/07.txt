@@ -2,4 +2,8 @@
 2020-07-09
 ==========
 
-**New minor version version::``0.1.0-beta`` of ¨initpro:** the ``launch.py`` can be activated with CLI options and they work with path::``.bash`` and path::``.py`` files.
+**New minor version version::``0.1.1-beta`` of ¨initpro:** here are the new things.
+
+    1) The ``launch.py`` can be activated with CLI options and they work with path::``.bash`` and path::``.py`` files.
+
+    1) ¨latex templates have been added.

@@ -6,6 +6,8 @@
 
 from collections import defaultdict
 
+from mistool.os_use import PPath
+
 from .message import *
 
 
@@ -20,7 +22,7 @@ COOKIECUTTER_JSON = "cookiecutter.json"
 # -- PROJECTS AVAILABLE -- #
 # ------------------------ #
 
-def find(cookiecutter_temp, peuf_dir):
+def findpeufs(cookiecutter_temp, peuf_dir):
     global COOKIECUTTER_JSON
 
 # Looking for all the cookiecutter.json files.
@@ -29,19 +31,16 @@ def find(cookiecutter_temp, peuf_dir):
     for onepath in cookiecutter_temp.walk(
         "file::**{0}".format(COOKIECUTTER_JSON)
     ):
-        templates.append(
-            f"{onepath.parent.parent.name}/{onepath.parent.name}"
-        )
+        templates.append(f"{onepath.parent - cookiecutter_temp}")
 
 # Finding all the peuf files.
     peuf_files = defaultdict(list)
 
     for onepath in peuf_dir.walk("file::**.peuf"):
         if onepath.stem[0] != "_":
-            langlike = onepath.parent.parent.name
-            kind     = onepath.parent.name
+            relativepath = onepath.parent - peuf_dir
 
-            peuf_files[f"{langlike}/{kind}"].append(onepath.name)
+            peuf_files[f"{relativepath}"].append(onepath.name)
 
 
 # Checking for folder error.
