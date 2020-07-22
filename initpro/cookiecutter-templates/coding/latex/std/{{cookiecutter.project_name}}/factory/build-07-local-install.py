@@ -3,7 +3,7 @@
 from mistool.latex_use import install, PPath
 
 
-PROJECT_NAME = "lymath"
+PROJECT_NAME = "{{cookiecutter.project_name | lower()}}"
 
 DECO = " "*4
 

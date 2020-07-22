@@ -1,10 +1,10 @@
 project::
-    name = tnscalc
-    desc = This LaTeX package tries to simplify the typing of differential and integral calculus.
+    name = tnsmath
+    desc = This LaTeX package tries to simplify the typing of mathématics.
 
     _authors = Christophe, BAL , projetmbc@gmail.com
 
-    version = 0.0.0-beta
+    version = 1.3.0-beta
     url     = https://github.com/typensee-latex/tnstools.git
     license = GPL-3.0
 

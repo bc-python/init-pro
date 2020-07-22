@@ -1,5 +1,5 @@
 project::
-    name = tnsploy
+    name = tnspoly
     desc = This LaTeX package tries to simplify the typing of polynomials and formal series.
 
     _authors = Christophe, BAL , projetmbc@gmail.com
