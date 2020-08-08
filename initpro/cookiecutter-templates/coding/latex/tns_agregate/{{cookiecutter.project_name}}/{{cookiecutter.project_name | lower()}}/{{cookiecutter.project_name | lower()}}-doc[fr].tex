@@ -1,3 +1,8 @@
+%\documentclass[12pt,a4paper]{scrartcl}
+\documentclass[12pt,a4paper]{book}
+
+\makeatletter % Technical doc - START
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{ucs}
@@ -6,8 +11,6 @@
 
 \usepackage[top=2cm, bottom=2cm, left=1.5cm, right=1.5cm]{geometry}
 \usepackage{enumitem}
-
-\usepackage{pgffor}
 
 \usepackage{multicol}
 
@@ -23,7 +26,6 @@
     urlcolor=black
 }
 
-\usepackage[numbered]{bookmark}
 \usepackage{amsthm}
 
 \usepackage{tcolorbox}
@@ -38,11 +40,15 @@
 
 % Sections numbering
 
-%\renewcommand\thechapter{\Alph{chapter}.}
+\renewcommand\thechapter{\Alph{chapter}.}
 \renewcommand\thesection{\Roman{section}.}
 \renewcommand\thesubsection{\arabic{subsection}.}
 \renewcommand\thesubsubsection{\roman{subsubsection}.}
 
+
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
 
 
 % MISC
@@ -216,3 +222,77 @@
 	\textbf{\textsc{#1} :}%
 }
 
+\makeatother % Technical doc - END
+
+
+\usepackage{ {{cookiecutter.project_name | lower()}} }
+
+
+\begin{document}
+
+\renewcommand\labelitemi{\raisebox{0.125em}{\tiny\textbullet}}
+\renewcommand{\labelitemii}{---}
+
+\title{   %
+	Le package \texttt{ {{cookiecutter.project_name | lower()}} }\\%
+	{\footnotesize Code source disponible sur \url{ {{cookiecutter.url}} }.}\\%
+{\footnotesize Version \texttt{ {{cookiecutter.version}} } développée et testée sur \macosxname{}.}%
+}
+\author{Christophe BAL}
+\date{YYYY-MM-DD}
+
+\maketitle
+
+
+\vspace{2em}
+
+\hrule
+
+\tableofcontents
+
+
+\section{Introduction}
+\section{Packages utilisés}
+
+La roue ayant déjà été inventée, le package \verb#{{cookiecutter.project_name | lower()}}# réutilise les packages suivants sans aucun scrupule.
+
+\begin{multicols}{2}
+% List of packages - START
+AUTO FILLED....
+% List of packages - END
+\end{multicols}
+\newpage
+
+\section{Historique}
+
+Nous ne donnons ici qu'un très bref historique récent
+\footnote{
+	On ne va pas au-delà de un an depuis la dernière version.
+}
+de \verb+{{cookiecutter.project_name | lower()}}+ à destination de l'utilisateur principalement.
+Tous les changements sont disponibles uniquement en anglais dans le dossier \verb+change-log+ : voir le code source de \verb+{{cookiecutter.project_name | lower()}}+ sur \verb+github+.
+
+\begin{description}
+% Changes shown - START
+
+    \item Voir \verb+build-update-changes-n-version.py+ qui se charge de mettre à jour ce log automatiquement !
+
+% Changes shown - END 
+\end{description}
+
+
+\newpage
+\chapter{Toutes les fiches techniques} \label{techincal-ids}
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
