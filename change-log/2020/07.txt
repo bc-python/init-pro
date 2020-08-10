@@ -4,9 +4,9 @@
 
 **¨latex templates:** the file path::``build-01-dep[extra].py`` does two new things.
 
-    1) This files produces the list of all the packages used for the documentation.
+    1) This file prints the list of all the packages used inside the documentation.
 
-    1) It will no longer analyze twice the same official package.
+    1) This file will no longer analyze twice the same official package.
 
 
 ==========
