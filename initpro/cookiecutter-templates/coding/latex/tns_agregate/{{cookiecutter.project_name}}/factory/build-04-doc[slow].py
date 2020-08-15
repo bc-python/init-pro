@@ -31,6 +31,7 @@ PYFORMAT = MultiReplace({
 LATEX_SECTIONS = [
     section
     for section in """
+\\chapter
 \\section
 \\subsection
 \\subsubsection

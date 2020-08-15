@@ -1,4 +1,11 @@
 ==========
+2020-08-15
+==========
+
+**¨latex templates:** extra ¨minted folders are cleaned.
+
+
+==========
 2020-08-10
 ==========
 
