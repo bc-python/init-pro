@@ -17,7 +17,7 @@ PROJECT_NAME = "{{cookiecutter.project_name | lower()}}"
 
 PARTS_DIR = THIS_DIR.parent.parent / f"{PROJECT_NAME}-parts"
 
-
+{% raw %}
 SPECIFIC_DOC_SUFFIX = f"{PROJECT_NAME}-nodoc"
 
 TOCDOC_FILE = THIS_DIR / f"tocdoc[fr].txt"
@@ -219,3 +219,4 @@ for partname, versions in MAIN_INFOS.items():
             )
 
             updatecontent(firstpath, content)
+{% endraw %}

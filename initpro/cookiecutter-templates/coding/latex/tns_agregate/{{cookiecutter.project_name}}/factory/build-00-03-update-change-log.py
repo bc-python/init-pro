@@ -17,7 +17,7 @@ THIS_DIR = PPath(__file__).parent
 
 PROJECT_NAME = "{{cookiecutter.project_name | lower()}}"
 
-
+{% raw %}
 PARTS_DIR = THIS_DIR.parent.parent / "tnsmath-parts"
 
 
@@ -411,3 +411,4 @@ else:
         txtfile.write(content)
 
     print(f"{DECO*2}- LaTeX change log file updated.")
+{% endraw %}

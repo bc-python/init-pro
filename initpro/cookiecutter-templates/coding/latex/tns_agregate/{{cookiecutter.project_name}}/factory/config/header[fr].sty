@@ -1,4 +1,4 @@
-% ---------------------- %
+{% raw %}% ---------------------- %
 % -- GENERAL SETTINGS -- %
 % ---------------------- %
 
@@ -41,7 +41,7 @@
 
 \usepackage[raggedright]{titlesec}
 
-\renewcommand\thechapter{\Alph{chapter}.}
+%\renewcommand\thechapter{\Alph{chapter}.}
 \renewcommand\thesection{\Roman{section}.}
 \renewcommand\thesubsection{\arabic{subsection}.}
 \renewcommand\thesubsubsection{\roman{subsubsection}.}
@@ -83,6 +83,7 @@
 \usepackage{ifplatform}
 \usepackage{ifthen}
 \usepackage{macroenvsign}
+\usepackage{pgffor}
 
 
 
@@ -267,4 +268,4 @@
 }
 
 
-\newcommand\ascii{\texttt{ASCII}}
+\newcommand\ascii{\texttt{ASCII}}{% endraw %}

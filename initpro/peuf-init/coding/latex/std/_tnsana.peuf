@@ -1,11 +1,11 @@
 project::
-    name = tnsana
-    desc = This LaTeX package tries to simplify the typing of general analysis.
+    name = tnsarith
+    desc = This LaTeX package proposes macros to write easily elementary analysis.
 
     _authors = Christophe, BAL , projetmbc@gmail.com
 
     version = 0.0.0-beta
-    url     = https://github.com/typensee-latex/tnstools.git
+    url     = https://github.com/typensee-latex/tnsana.git
     license = GPL-3.0
 
     _test_on = Mac OS 10.15.5

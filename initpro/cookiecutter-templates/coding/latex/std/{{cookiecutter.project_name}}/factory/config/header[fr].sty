@@ -1,4 +1,4 @@
-% ---------------------- %
+{% raw %}% ---------------------- %
 % -- GENERAL SETTINGS -- %
 % ---------------------- %
 
@@ -83,6 +83,7 @@
 \usepackage{ifplatform}
 \usepackage{ifthen}
 \usepackage{macroenvsign}
+\usepackage{pgffor}
 
 
 
@@ -101,7 +102,7 @@
 \tcbuselibrary{minted, breakable}
 
 \newtcblisting{latexex}{%
-    breakable,
+    breakable,%
     sharp corners,%
     left   = 1mm, right = 1mm,%
     bottom = 1mm, top   = 1mm,%
@@ -267,4 +268,4 @@
 }
 
 
-\newcommand\ascii{\texttt{ASCII}}
+\newcommand\ascii{\texttt{ASCII}}{% endraw %}
