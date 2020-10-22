@@ -29,7 +29,9 @@ ABOUT_LATEX = about()
 
 PACKAGE_ID, TIKZLIB_ID, KIND_ID, NAMES_ID, OPTIONS_ID = range(5)
 
-PACKAGE_ALREADY_ANALYZED = []
+PACKAGE_ALREADY_ANALYZED = [
+    "algorithm2e", # <--- UnicodeDecodeError: 'utf-8' codec can't decode byte 0xf6 in position 1340: invalid start byte
+]
 
 DECO = " "*4
 
@@ -240,7 +242,8 @@ for subdir in THIS_DIR.walk("dir::"):
         continue
 
     for onestyfile in subdir.walk("file::*.sty"):
-        paths_found.append(onestyfile)
+        if (onestyfile - THIS_DIR).depth == 1:
+            paths_found.append(onestyfile)
 
 paths_found.sort()
 
@@ -336,7 +339,7 @@ if packages:
         f"\\item \\verb#{pack}#"
         for pack in packages
     ]
-    packages = "\n    ".join(packages)
+    packages = "\n        ".join(packages)
 
 
     temp_tex = """
@@ -348,7 +351,7 @@ La roue ayant déjà été inventée, le package \\verb#""" \
 
 \\begin{multicols}{4}
     \\begin{itemize}
-""" \
+        """ \
 + packages \
 + """
     \\end{itemize}

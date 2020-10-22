@@ -15,8 +15,9 @@ DIR_FACTORY_PATH = PROJECT_PATH / "factory"
 DIR_DOC_PATH     = PROJECT_PATH / f"{PROJECT_NAME}"
 
 EXT_FOR_EXTRA = {
-    'png': "PNG images",
-    'tkz': "TikZ files",
+    'png'        : "PNG images",
+    'tkz'        : "TikZ files",
+    '[extra].tex': 'TeX "example" files',
 }
 
 
@@ -37,7 +38,13 @@ for ext, desc in EXT_FOR_EXTRA.items():
             continue
 
         reldir = list((extfile - DIR_FACTORY_PATH).parents)
-        reldir = f"{reldir[-4] - reldir[-3]}/"
+
+        if len(reldir) == 2:
+            reldir = ""
+
+        else:
+            reldir = f"{reldir[-3] - reldir[-2]}/"
+
 
         distpath = f"{reldir}{extfile.name}"
 

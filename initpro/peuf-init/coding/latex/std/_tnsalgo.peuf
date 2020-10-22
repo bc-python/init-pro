@@ -1,6 +1,6 @@
 project::
     name = tnsalgo
-    desc = This LaTeX package tries to simplify the typing of algorithms.
+    desc = This LaTeX package proposes macros to print algorithms.
 
     _authors = Christophe, BAL , projetmbc@gmail.com
 

@@ -1,0 +1,5 @@
+==========
+2020-09-10
+==========
+
+**¨latex templates:** the builder for the path::``sty`` file just keeps one depth files and uses the good way to indicate the options to pass to a package.
